@@ -9,7 +9,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool isRememberChecked = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   void _login(BuildContext context) {
     //TODO Email and password pass to api that it will return a token if valid or null
@@ -41,6 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: verticalSpacing),
             TextField(
+              controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: "Email: ",
@@ -51,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: verticalSpacing - 5),
             TextField(
+              controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password: ",
