@@ -43,6 +43,14 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  void _signup(BuildContext context) {
+    //Go to SignUpScreen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const Placeholder()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const double verticalSpacing = 20;
@@ -126,7 +134,15 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Text("Already have you an account?"),
                 SizedBox(width: 5),
-                Text("Sign up", style: TextStyle(color: Colors.deepPurple)),
+                GestureDetector(
+                  onTap: () {
+                    _signup(context);
+                  },
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(color: Colors.deepPurple),
+                  ),
+                ),
               ],
             ),
           ],
