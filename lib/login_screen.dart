@@ -35,6 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  void _forgot_password(BuildContext context) {
+    //Go to ForgotPasswordScreen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const Placeholder()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const double verticalSpacing = 20;
@@ -102,7 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    _forgot_password(context);
+                  },
                   child: const Text(
                     "Forgot Password?",
                     style: TextStyle(color: Colors.deepPurple),
