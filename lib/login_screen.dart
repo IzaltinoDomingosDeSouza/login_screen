@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,6 +10,17 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isRememberChecked = false;
+
+  void _login(BuildContext context) {
+    //TODO Email and password pass to api that it will return a token if valid or null
+    //TODO Save token
+    //Go to HomeScreen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const HomeScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     const double verticalSpacing = 20;
@@ -49,7 +61,12 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
 
             SizedBox(height: verticalSpacing),
-            ElevatedButton(onPressed: () {}, child: Text("Login")),
+            ElevatedButton(
+              onPressed: () {
+                _login(context);
+              },
+              child: Text("Login"),
+            ),
             SizedBox(height: verticalSpacing),
 
             Row(
