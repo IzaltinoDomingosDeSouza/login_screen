@@ -23,6 +23,11 @@ class _LoginScreenState extends State<LoginScreen> {
   void _login(BuildContext context) {
     //TODO Email and password pass to api that it will return a token if valid or null
     //TODO Save token
+
+    //clear
+    _emailController.clear();
+    _passwordController.clear();
+
     //Go to HomeScreen
     Navigator.pushReplacement(
       context,
