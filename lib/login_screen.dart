@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool isRememberChecked = false;
   @override
   Widget build(BuildContext context) {
     const double verticalSpacing = 20;
@@ -51,7 +57,14 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (bool? isChecked) {}),
+                    Checkbox(
+                      value: isRememberChecked,
+                      onChanged: (bool? isChecked) {
+                        setState(() {
+                          isRememberChecked = isChecked ?? false;
+                        });
+                      },
+                    ),
                     Text("Remember me"),
                   ],
                 ),
